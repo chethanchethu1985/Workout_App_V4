@@ -1,0 +1,26 @@
+MY WORKOUTS V4 - GITHUB-READY ANDROID SOURCE
+===========================================
+
+WHAT IS INCLUDED
+- V4 Android app source (www/index.html)
+- 8-week programme preloaded in the app (2 Nov 2026 to 27 Dec 2026)
+- Source programme data extracted from the supplied 8-Week Progressive Muscle Gain Programme PDF
+- Original two-sheet weekly Excel template retained, with a Date column added
+- Populated Excel workbook for all 8 weeks (optional upload/reference copy)
+- Bundled Excel template copied to app Documents on first launch when the Capacitor Filesystem plugin is available; the Workout Library also has a download/share action
+- Capacitor Android setup, folder access plugin overrides and GitHub Actions workflow
+
+BUILD APK USING GITHUB
+1. Create a NEW GitHub repository, for example: my-workouts-v4.
+2. Extract this ZIP and upload the CONTENTS of this folder to the repository root. Do not upload the outer folder as a nested directory.
+3. Confirm that www/index.html is at the repository root under www/index.html.
+4. Commit to main (or master). The workflow at .github/workflows/build-apk.yml starts automatically. You can also run it from Actions > Build Android APK > Run workflow.
+5. Open the successful workflow run and download the artifact named My-Workouts-V4-APK.
+6. Extract the artifact and install app-debug.apk on the Android device. Allow installation from the source you use to open the APK.
+
+IMPORTANT
+- V4 uses application ID com.myworkout.v4 and a separate local-storage namespace. It is intended to install alongside V3 rather than replace it.
+- The supplied 8-week plan is seeded on first V4 launch. Week 1 starts Monday 2 Nov 2026; Week 8 ends Sunday 27 Dec 2026. Your edits are retained after the first seed.
+- Existing V3 workout history and media are not automatically visible to V4 because Android apps have separate private storage. Use the V3 backup export and V4 import flow for the data formats supported by that backup. Health data protected by the older V3 vault requires the old vault password.
+- The APK has not been built or device-tested in this workspace. GitHub Actions must complete successfully before the APK is considered build-verified. Please share the failed Actions log if the build fails; do not share GitHub passwords or access tokens.
+- Google Fit, Health Connect and Fastrack live data permissions/services require device-side configuration and testing. The source keeps these as integration work requiring Android-side validation; this ZIP does not claim live provider connectivity has passed.
